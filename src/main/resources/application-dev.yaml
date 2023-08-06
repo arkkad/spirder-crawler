@@ -1,0 +1,19 @@
+datasource:
+  jdbcUrl: jdbc:postgresql://localhost:5432/iexdb
+  username: iexuser
+  password: iexpass
+  driver-class-name: org.postgresql.Driver
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    distribution:
+      percentiles-histogram:
+        "[http.server.requests]": true
